@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Emotion Detection</title>
+    <meta name="description" content="Detect emotions from text using our advanced AI model.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">✨</div>
+                <h1>Emotion AI</h1>
+            </div>
+            <p class="subtitle">Discover the sentiment behind your words.</p>
+        </header>
+
+        <section class="detector-panel">
+            <div class="input-group">
+                <label for="textInput">Enter your text here:</label>
+                <textarea id="textInput" placeholder="I am feeling absolutely wonderful today..." rows="4"></textarea>
+            </div>
+            <button id="analyzeBtn" class="primary-btn">
+                <span class="btn-text">Analyze Emotion</span>
+                <span class="loader hidden"></span>
+            </button>
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+            <div class="result-card">
+                <h2 class="result-title">Detected Emotion</h2>
+                <div class="emotion-display">
+                    <span id="emotionEmoji" class="emoji">🤔</span>
+                    <span id="emotionLabel" class="emotion-text">Thinking...</span>
+                </div>
+                <div class="confidence-bar-container">
+                    <div class="confidence-label">
+                        <span>Confidence</span>
+                        <span id="confidenceValue">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="confidenceBar" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="errorToast" class="toast hidden">
+            <span class="toast-icon">⚠️</span>
+            <span id="errorMessage">An error occurred.</span>
+        </div>
+    </main>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
